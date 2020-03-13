@@ -1,27 +1,26 @@
 {
-  "name": "FEC",
-  "version": "1.0",
-  "description": "",
-  "author": "Jose",
-  "license": "",
-  "engines": {
-    "node": ">=6.13.0"
+  "name": "photo-gallery",
+  "version": "1.0.0",
+  "description": "# Project Name",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StayKay/photo-gallery.git"
+  },
+  "author": "Jose Madrigal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StayKay/photo-gallery/issues"
+  },
+  "homepage": "https://github.com/StayKay/photo-gallery#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "mongo": "^0.1.0",
     "mysql": "^2.18.1",
-    "mysql2": "^2.1.0"
-  },
-  "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^1.7.0"
+    "mysql2": "^2.1.0",
+    "node": "^13.10.1",
+    "nodemon": "^2.0.2"
   }
 }

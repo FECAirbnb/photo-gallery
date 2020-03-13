@@ -1,7 +1,7 @@
 const locations =
   ['Phoenix',
-    'Litchfield Park,'
-   'Glendale',
+    'Litchfield Park',
+    'Glendale',
     'Scottsale',
     'Tempe',
     'Chandler',
