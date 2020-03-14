@@ -5,7 +5,8 @@
   "main": ".eslintrc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db-setup": "node ./db/createDB.js"
+    "db-setup": "node ./db/createDB.js",
+    "react-dev": "webpack -d --watch"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,16 @@
     "node": "^13.10.1",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.2",
-    "promise": "^8.1.0"
+    "promise": "^8.1.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   }
 }
