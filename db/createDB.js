@@ -34,14 +34,11 @@ dbConnecton.connect(err => {
       console.log(err)
     }
   })
-
-  //console.log(data)
   data.forEach(data => {
     dbConnecton.query(`INSERT INTO locations (name) VALUES ('${data}')`, (err, result) => {
       if (err) {
         console.log(err);
       }
-      //console.log('inserted locations')
     })
   });
 
@@ -65,10 +62,8 @@ dbConnecton.connect(err => {
       setTimeout(async function () {
         try {
           const response = await axios.get(api_url)
-          //console.log(response.request._redirectable._options.href)
           if (i % 10 === 0 && locationIDforTable < 11) {
             locationIDforTable++;
-            //console.log(locationIDforTable)
           }
           photos = response.request._redirectable._options.href;
           dbConnecton.promise().query(`INSERT INTO photo (imageUrl, id_locations)  VALUES (?, ?)`, [photos, locationIDforTable], (err) => {
@@ -76,12 +71,10 @@ dbConnecton.connect(err => {
               console.log(err)
             }
           })
-          // console.log(photos)
         } catch (error) {
           console.error(error)
         }
       }, timeToWaitBetweenRequests += 50)
-      //console.log(photos)
     }
   }
   getImgUrl();
