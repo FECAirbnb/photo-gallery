@@ -1,29 +1,26 @@
 const mysql = require('mysql2')
 const data = require('./data.js')
-const seed = require('./seed.js')
 const dbConnecton = require('./index.js')
 
 const axios = require('axios')
 
-//console.log(seed)
 
 dbConnecton.connect(err => {
   if (err) {
-    console.log(err)
+    throw err
   }
 
 
   dbConnecton.query(`CREATE DATABASE IF NOT EXISTS photogallery;`, (err, result) => {
     if (err) {
-      console.log(err)
+      throw err
     }
     console.log('connect to DB', result)
   })
 
   dbConnecton.query(`USE photogallery;`, err => {
-    // console.log('here')
     if (err) {
-      console.log(err)
+      throw err
     }
   })
 
@@ -31,13 +28,13 @@ dbConnecton.connect(err => {
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name varchar(45))`, err => {
     if (err) {
-      console.log(err)
+      throw err
     }
   })
   data.forEach(data => {
     dbConnecton.query(`INSERT INTO locations (name) VALUES ('${data}')`, (err, result) => {
       if (err) {
-        console.log(err);
+        throw err
       }
     })
   });
@@ -47,7 +44,7 @@ dbConnecton.connect(err => {
     imageUrl VARCHAR(255) NULL DEFAULT NULL,
     id_locations INT NULL)`, (err) => {
     if (err) {
-      console.log(err)
+      throw err
     }
   })
 
@@ -58,7 +55,6 @@ dbConnecton.connect(err => {
     var locationIDforTable = 0
     var photos = "";
     for (let i = 0; i < 100; i++) {
-
       setTimeout(async function () {
         try {
           const response = await axios.get(api_url)
@@ -68,11 +64,11 @@ dbConnecton.connect(err => {
           photos = response.request._redirectable._options.href;
           dbConnecton.promise().query(`INSERT INTO photo (imageUrl, id_locations)  VALUES (?, ?)`, [photos, locationIDforTable], (err) => {
             if (err) {
-              console.log(err)
+              throw err
             }
           })
         } catch (error) {
-          console.error(error)
+          throw error
         }
       }, timeToWaitBetweenRequests += 50)
     }
