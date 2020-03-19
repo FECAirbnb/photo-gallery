@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }))
 db.query(`use photogallery`)
 
 app.get('/photogallery', (req, res) => {
-  const queryStr = `SELECT  imageUrl FROM photo;`
+  const queryStr = `SELECT  * FROM photo;`
   db.query(queryStr, (err, result) => {
     if (err) {
       throw err

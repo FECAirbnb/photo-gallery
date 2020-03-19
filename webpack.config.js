@@ -1,3 +1,5 @@
+
+
 module.exports = {
   entry: __dirname + '/client/src/index.jsx',
   module: {
@@ -8,9 +10,17 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-react', '@babel/preset-env']
+            presets: ['@babel/preset-react', '@babel/preset-env'],
+            "plugins": [
+              [
+                "@babel/plugin-proposal-class-properties"
+              ]
+            ]
           }
         }
+      }, {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
