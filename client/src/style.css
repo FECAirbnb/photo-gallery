@@ -6,6 +6,7 @@ body {
 
 .photo-gallery-display {
   height: 400px;
+  overflow: hidden;
 }
 
 .main {
@@ -13,7 +14,9 @@ body {
 }
 
 .smImage{
-min-height: 300px;
+min-height: 200px;
+max-height: 200px;
+
 }
 
 .photo-gallery-display img {
@@ -25,6 +28,7 @@ min-height: 300px;
   background-color: #0000001c;
   position: relative;
   flex-direction: column;
+  height: 240px;
 }
 
 .gallery-display .gallery-display-top  {
@@ -113,16 +117,12 @@ min-height: 300px;
   color: #222
 }
 
-#vids {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.gallery-display-bottom{
+  position: 'absolute';
+  left: 0;
+   bottom: 0
 }
 
-#vids a:first-of-type {
-  margin-bottom: 5px;
-}
 
 
 
