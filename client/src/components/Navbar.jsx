@@ -1,8 +1,9 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form'
 import FormControl from 'react-bootstrap/FormControl'
-import { Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, NavDropdown, InputGroup } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image'
+import { Search } from 'react-feather'
 
 
 const NavigationBar = props => {
@@ -12,8 +13,12 @@ const NavigationBar = props => {
         <Navbar.Brand href="#home">StayKay</Navbar.Brand>
         <Nav className="mr-auto">
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="ml-sm-2" />
-
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text> <Search height="20" weight='20' /></InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl type="text" placeholder="Search" className="ml-sm-2" />
+            </InputGroup>
           </Form>
         </Nav>
         <Nav className="justify-content-end" >

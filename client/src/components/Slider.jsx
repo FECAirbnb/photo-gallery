@@ -49,6 +49,9 @@ class Slider extends React.Component {
             transform: `translateX(${this.state.translateValue}px)`,
             transition: 'transform ease-out 0.45s'
           }}>
+          <span className="close" >
+            &times;
+          </span>
           {
             this.state.images.map((image, i) => (
               <Slide key={i} image={image} />

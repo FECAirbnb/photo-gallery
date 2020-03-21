@@ -35,6 +35,12 @@ max-height: 200px;
   justify-content: flex-end;
 }
 
+.button {
+   float:right;
+    display:block;
+    margin-right:0px;
+    background-color: rgb(148, 13, 13);
+}
 .image-wrapper {
   height: 400px;
   width: 100%;

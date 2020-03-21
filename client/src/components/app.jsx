@@ -55,7 +55,7 @@ class App extends React.Component {
           <NavigationBar />
         </div>
         <div>
-          {/* <Title /> */}
+          <Title />
         </div>
         <div className='photo-gallery'>
           <Photos image1={this.state.image1}
