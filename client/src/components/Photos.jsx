@@ -1,66 +1,37 @@
-import React, { Component, useState } from 'react'
+import React, { Component } from 'react'
 import {
   MDBRow,
   MDBCol,
   MDBContainer
 } from "mdbreact";
-import Font from 'react-fontawesome'
 import Button from 'react-bootstrap/Button'
 import Slider from './Slider.jsx'
+import Image from 'react-bootstrap/Image'
 
 const Photos = props => {
-  const [modalShow, setModalShow] = useState(false)
-
-  // const handleClickForPhotos = event => {
-  //   { console.log('clicked') }
-  //   event && event.stopPropagation && event.stopPropagation();
-  //   if (event.target.nodeName !== 'DIV' || !event.target.classList.contains('gallery-display')) {
-  //     return;
-  //   }
-  //   props.showSlides();
-  //this goes in line 26 mdb container onClick={handleClickForPhotos}
-  // }
-
+  //console.log(props)
   return (
     <div>
-      <MDBContainer fluid className='photo-gallery-display' style={{ paddingLeft: 0, paddingRight: 0 }}>
-        <MDBRow className='image-wrapper' style={{ paddingLeft: 0, paddingRight: 0 }}>
+      <MDBContainer fluid className='photo-gallery-display' style={{ paddingLeft: 25, paddingRight: 10 }}>
+        <MDBRow className='image-wrapper' >
           <MDBCol md='6' className='main' style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <img src={props.image1} alt='' className='img-fluid z-depth-1' />
-          </MDBCol>
-
-          <MDBCol md='3' className='smImages' style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <img src={props.image2} alt='' className='img-fluid ' />
-            <img src={props.image3} alt='' className='img-fluid ' />
+            <Image src={props.image1} alt='' className='img-fluid z-depth-1' thumbnail />
           </MDBCol>
           <MDBCol md='3' className='smImages' style={{ paddingLeft: 0, paddingRight: 0 }}>
-            <img src={props.image1} alt='' className='img-fluid ' />
-            <img src={props.image5} alt='' className='img-fluid ' />
+            <Image src={props.image2} alt='' className='img-fluid ' thumbnail />
+            <Image src={props.image3} alt='' className='img-fluid ' thumbnail />
           </MDBCol>
-        </MDBRow>
-        <div className="gallery-display fx">
-          <div className="gallery-display-top fx">
-            <Button variant="link">Share</Button>
-            <Button variant="link">Save</Button>
-          </div>
-          <div className="gallery-display-bottom" >
-            < Button onClick={props.togglePopup} style={{ position: 'absolute', left: 0, bottom: 0 }}>
-              View Photo
+          <MDBCol md='3' className='smImages' style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <Image src={props.image1} alt='' className='img-fluid ' thumbnail />
+            <Image src={props.image5} alt='' className='img-fluid ' thumbnail />
+          </MDBCol>
+          < Button onClick={props.togglePopup} variant="light" size="sm" style={{ position: 'absolute', right: 0, bottom: 'auto' }}>
+            Show all photos
           </Button>
-          </div>
-        </div>
-
+        </MDBRow>
       </MDBContainer>
-      <div>
-        {props.showPopup ?
-          <Slider closePopup={props.togglePopup} />
-          : null
-        }
-      </div>
-
     </div>
   )
-
 }
 
 export default Photos

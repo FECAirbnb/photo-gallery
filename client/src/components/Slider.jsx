@@ -5,14 +5,9 @@ import ReactDOM from 'react-dom'
 class Slider extends React.Component {
   constructor(props) {
     super(props)
-    console.log(props)
+    // console.log(props)
     this.state = {
-      images: ["https://loremflickr.com/cache/resized/4527_24526622268_5d058f4312_z_320_160_nofilter.jpg",
-        "https://loremflickr.com/cache/resized/4610_39855219511_4d9e681168_n_320_160_nofilter.jpg",
-        "https://loremflickr.com/cache/resized/65535_48787650227_eccb525b11_n_320_160_nofilter.jpg",
-        "https://loremflickr.com/cache/resized/1800_30104425248_b1b1042a39_n_320_160_nofilter.jpg",
-        "https://loremflickr.com/cache/resized/4561_38307587181_9de8dcdf85_320_160_nofilter.jpg",
-        "https://loremflickr.com/cache/resized/908_27372703007_a31f94b0c9_n_320_160_nofilter.jpg"],
+      images: props.slides,
       currentIndex: 0,
       translateValue: 0
     }
@@ -49,12 +44,14 @@ class Slider extends React.Component {
   render() {
     return (
       <div className="slider">
-
         <div className="slider-wrapper"
           style={{
             transform: `translateX(${this.state.translateValue}px)`,
             transition: 'transform ease-out 0.45s'
           }}>
+          <span className="close" >
+            &times;
+          </span>
           {
             this.state.images.map((image, i) => (
               <Slide key={i} image={image} />
@@ -70,12 +67,10 @@ class Slider extends React.Component {
           goToNextSlide={this.goToNextSlide}
         />
 
-
       </div>
     );
   }
 }
-
 
 const Slide = ({ image }) => {
   const styles = {
@@ -103,6 +98,13 @@ const RightArrow = (props) => {
   );
 }
 
-//ReactDOM.render(<Slider />, document.getElementById('app'))
-
 export default Slider
+
+
+
+// ["https://loremflickr.com/cache/resized/4527_24526622268_5d058f4312_z_320_160_nofilter.jpg",
+//         "https://loremflickr.com/cache/resized/4610_39855219511_4d9e681168_n_320_160_nofilter.jpg",
+//         "https://loremflickr.com/cache/resized/65535_48787650227_eccb525b11_n_320_160_nofilter.jpg",
+//         "https://loremflickr.com/cache/resized/1800_30104425248_b1b1042a39_n_320_160_nofilter.jpg",
+//         "https://loremflickr.com/cache/resized/4561_38307587181_9de8dcdf85_320_160_nofilter.jpg",
+//         "https://loremflickr.com/cache/resized/908_27372703007_a31f94b0c9_n_320_160_nofilter.jpg"]

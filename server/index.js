@@ -7,7 +7,7 @@ const path = require('path')
 
 //app.use(bodyParser.json())
 
-app.use(express.static(path.join(__dirname, '../client/dist/')));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: true }))
 
 db.query(`use photogallery`)
