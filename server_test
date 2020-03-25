@@ -1,0 +1,16 @@
+// import Server from './server/index.js'
+
+// const request = require('supertest')
+
+
+// describe('GET /photo-gallery', () => {
+//   test('should respons with status code 200', () => {
+//     return request(Server)
+//       .get('/')
+//       .expect(200)
+//       .end((err, res) => {
+//         if (err) throw err
+//       })
+//   })
+
+// })

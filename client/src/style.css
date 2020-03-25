@@ -4,21 +4,6 @@ body {
   font-family: sans-serif;
 }
 
-.photo-gallery-display {
-  height: 400px;
-  overflow: hidden;
-}
-
-.main {
-  min-height: 400px;
-}
-
-.smImage{
-min-height: 200px;
-max-height: 200px;
-
-}
-
 .photo-gallery-display img {
   display: block;
   width: 100%;
@@ -28,106 +13,21 @@ max-height: 200px;
   background-color: #0000001c;
   position: relative;
   flex-direction: column;
-  height: 240px;
-}
-
-.gallery-display .gallery-display-top  {
-  justify-content: flex-end;
-}
-
-.button {
-   float:right;
-    display:block;
-    margin-right:0px;
-    background-color: rgb(148, 13, 13);
-}
-.image-wrapper {
   height: 400px;
-  width: 100%;
-  overflow: hidden;
-  position: absolute;
 }
 
-.fx {
-  display: flex;
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 55%;
+  width: 80%
 }
 
-.container-fluid {
-  padding-left:0;
-  padding-right: 0;
-}
 
-@media screen and (max-width: 768px) {
-  .container {
-    width: 100% !important;
-  }
-  #footer {
-    display: none;
-  }
-}
 
-.hide-all {
-  overflow: hidden;
-}
 
-.slider {
-  position: relative;
-  width: 800px;
-  margin: 0 auto;
-  height: 500px;
-  overflow: hidden;
-  white-space: nowrap;
-}
 
-.slider-wrapper {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-.slide {
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-}
-
-.arrow {
-  height: 50px;
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f9f9f9;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform ease-in .1s;
-}
-
-.nextArrow {
-  position: absolute;
-  top: 50%;
-  right: 25px;
-  z-index: 999;
-  color: #fff;
-}
-
-.backArrow {
-  position: absolute;
-  top: 50%;
-  left: 25px;
-  z-index: 999;
-  color: #fff;
-}
-
-.fa-arrow-right:before, .fa-arrow-left:before {
-  color: #222
-}
-
-.gallery-display-bottom{
-  position: 'absolute';
-  left: 0;
-   bottom: 0
-}
 
 
 

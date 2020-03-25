@@ -1,16 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Dots from './Dots.jsx'
+
+import { ArrowRight, ArrowLeft } from 'react-feather'
 
 
 class Slider extends React.Component {
   constructor(props) {
     super(props)
-    // console.log(props)
+    console.log(props)
     this.state = {
       images: props.slides,
       currentIndex: 0,
       translateValue: 0
     }
+    this.props = props
   }
 
   goToPrevSlide = () => {
@@ -41,20 +45,32 @@ class Slider extends React.Component {
     return document.querySelector('.slide').clientWidth
   }
 
+
   render() {
+    const slider = {
+      position: 'relative',
+      width: '800px',
+      margin: '0 auto',
+      height: '800px',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      backgroundColor: 'white'
+    }
     return (
-      <div className="slider">
+      <div className="slider" style={slider}>
+
         <div className="slider-wrapper"
           style={{
             transform: `translateX(${this.state.translateValue}px)`,
-            transition: 'transform ease-out 0.45s'
+            transition: 'transform ease-out 0.45s',
+            position: 'relative',
+            height: '100%',
+            width: '100%'
           }}>
-          <span className="close" >
-            &times;
-          </span>
+
           {
             this.state.images.map((image, i) => (
-              <Slide key={i} image={image} />
+              <Slide key={i} image={image} closePopup={this.props.closePopup} />
             ))
           }
         </div>
@@ -66,45 +82,80 @@ class Slider extends React.Component {
         <RightArrow
           goToNextSlide={this.goToNextSlide}
         />
+        <Dots
+          slides={this.state.images}
+          activeIndex={this.state.currentIndex}
+        />
 
       </div>
     );
   }
 }
 
-const Slide = ({ image }) => {
+const Slide = ({ image, closePopup }) => {
   const styles = {
     backgroundImage: `url(${image})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: '50% 60%'
+    backgroundPosition: '40% 30%',
+    display: 'inline-block',
+    height: '100%',
+    width: '100%'
   }
-  return <div className="slide" style={styles}></div>
+  return <div className="slide" style={styles}>
+    <span className="close" onClick={closePopup} style={{ float: 'right', cursor: 'pointer' }} >
+      &times;
+          </span>
+  </div>
 }
 
 const LeftArrow = (props) => {
+  const backArrow = {
+    position: 'absolute',
+    top: '50%',
+    left: '25px',
+    zIndex: 999,
+    color: '#fff',
+    height: '50px',
+    width: '50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '#f9f9f9',
+    borderRadius: '50%',
+    cursor: 'pointer',
+    transition: 'transform ease-in .1s'
+  }
   return (
-    <div className="backArrow arrow" onClick={props.goToPrevSlide}>
-      <i className="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
-    </div>
+    <div className="backArrow arrow" onClick={props.goToPrevSlide} style={backArrow} >
+      <i className="arrow-left " aria-hidden="true"><ArrowLeft color='black' /></i>
+    </div >
   );
 }
 
 const RightArrow = (props) => {
+  const rightArrow = {
+    position: 'absolute',
+    zIndex: 999,
+    top: '50%',
+    right: '25px',
+    color: '#fff',
+    height: '50px',
+    width: '50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    background: '#f9f9f9',
+    borderRadius: '50%',
+    cursor: 'pointer',
+    transition: 'transform ease-in .1s'
+  }
   return (
-    <div className="nextArrow arrow" onClick={props.goToNextSlide}>
-      <i className="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+    <div className="nextArrow arrow" onClick={props.goToNextSlide} style={rightArrow}>
+      <i className="arrow-right " aria-hidden="true"><ArrowRight color='black' /></i>
     </div>
   );
 }
 
 export default Slider
 
-
-
-// ["https://loremflickr.com/cache/resized/4527_24526622268_5d058f4312_z_320_160_nofilter.jpg",
-//         "https://loremflickr.com/cache/resized/4610_39855219511_4d9e681168_n_320_160_nofilter.jpg",
-//         "https://loremflickr.com/cache/resized/65535_48787650227_eccb525b11_n_320_160_nofilter.jpg",
-//         "https://loremflickr.com/cache/resized/1800_30104425248_b1b1042a39_n_320_160_nofilter.jpg",
-//         "https://loremflickr.com/cache/resized/4561_38307587181_9de8dcdf85_320_160_nofilter.jpg",
-//         "https://loremflickr.com/cache/resized/908_27372703007_a31f94b0c9_n_320_160_nofilter.jpg"]

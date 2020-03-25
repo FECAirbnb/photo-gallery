@@ -7,9 +7,14 @@ import { Search } from 'react-feather'
 
 
 const NavigationBar = props => {
+  const navigationBar = {
+    position: 'fixed',
+    width: '100%',
+  }
+
   return (
     <div>
-      <Navbar bg="light" variant="light">
+      <Navbar className='navigationBar' bg="light" variant="light" style={navigationBar} >
         <Navbar.Brand href="#home">StayKay</Navbar.Brand>
         <Nav className="mr-auto">
           <Form inline>
