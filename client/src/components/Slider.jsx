@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import Dots from './Dots.jsx'
 
 import { ArrowRight, ArrowLeft } from 'react-feather'
+import Button from 'react-bootstrap/Button'
 
 
 class Slider extends React.Component {
@@ -48,9 +49,11 @@ class Slider extends React.Component {
 
   render() {
     const slider = {
-      position: 'relative',
-      width: '800px',
-      margin: '0 auto',
+      position: 'fixed',
+      width: '100%',
+      height: '100%',
+      margin: 'auto',
+      top: 0, left: 0, right: 0, left: 0,
       height: '800px',
       overflow: 'hidden',
       whiteSpace: 'nowrap',
@@ -58,14 +61,19 @@ class Slider extends React.Component {
     }
     return (
       <div className="slider" style={slider}>
-
+        <Button className="close" onClick={this.props.closePopup} variant="secondary"
+          style={{
+            float: 'left', position: 'absolute', top: '55px', left: '100px', display: ' flex', borderColor: 'black'
+          }}>
+          Close</Button>
         <div className="slider-wrapper"
           style={{
             transform: `translateX(${this.state.translateValue}px)`,
             transition: 'transform ease-out 0.45s',
-            position: 'relative',
-            height: '100%',
-            width: '100%'
+            position: 'absolute',
+            left: '20%',
+            right: '20%', top: '20%', bottom: '20%', margin: 'auto', borderRadius: '20px', background: 'white'
+
           }}>
 
           {
@@ -103,9 +111,7 @@ const Slide = ({ image, closePopup }) => {
     width: '100%'
   }
   return <div className="slide" style={styles}>
-    <span className="close" onClick={closePopup} style={{ float: 'right', cursor: 'pointer' }} >
-      &times;
-          </span>
+
   </div>
 }
 

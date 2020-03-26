@@ -7,7 +7,7 @@ const Dot = ({ active }) => {
     marginRight: '5px',
     cursor: 'pointer',
     borderRadius: '50% ',
-    background: `${active ? 'black' : 'white'}`
+    background: `${active ? 'black' : 'gray'}`
   }
   return <span style={styles} />
 }

@@ -20,40 +20,6 @@ This photo microservice renders photo urls to the host page on StayKay, a web ap
 
 ## Usage
 
-
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-- Node 6.13.0
-- npm 6.14.2
-- MySQL 2.1.0
-- React 16.13.0
-- Express 4.17.1
-- Axios 0.19.2
-
-
-
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install
-npm install -g webpack
-npm install webpack-cli
-npm install nodemon
-npm install axios
-npm install react
-npm install react-dom
-npm install express
-npm install react-bootstrap
-npm install mbdreact
-```
-
-## Development
-
 From within the root directory:
 
 To seed database
@@ -76,3 +42,34 @@ To run tests
 ```sh
 npm test
 ```
+
+```sh
+http://localhost:3001
+```
+
+## Requirements
+
+An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+- Node 6.13.0
+- npm 6.14.2
+- MySQL 2.1.0
+- React 16.13.0
+- Express 4.17.1
+- Axios 0.19.2
+
+
+### Installing Dependencies
+
+To get started:
+
+From within the root directory in the terminal:
+```sh
+npm install
+npm run db:setup
+npm run react-dev
+npm start
+```
+
+
+## Development
+
