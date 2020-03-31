@@ -11,7 +11,6 @@ dbConnecton.connect(err => {
     throw err
   }
 
-
   dbConnecton.query(`CREATE DATABASE IF NOT EXISTS photogallery;`, (err, result) => {
     if (err) {
       throw err
