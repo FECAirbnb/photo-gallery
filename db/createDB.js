@@ -1,4 +1,4 @@
-const mysql = require('mysql2')
+const mysql = require('mysql')
 const data = require('./data.js')
 const dbConnecton = require('./index.js')
 const photo = require('./photos.js')
@@ -10,7 +10,6 @@ dbConnecton.connect(err => {
   if (err) {
     throw err
   }
-
 
   dbConnecton.query(`CREATE DATABASE IF NOT EXISTS photogallery;`, (err, result) => {
     if (err) {
