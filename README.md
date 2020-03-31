@@ -53,9 +53,6 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Node 6.13.0
 - npm 6.14.2
 - MySQL 2.1.0
-- React 16.13.0
-- Express 4.17.1
-- Axios 0.19.2
 
 
 ### Installing Dependencies
@@ -65,11 +62,13 @@ To get started:
 From within the root directory in the terminal:
 ```sh
 npm install
-npm run db:setup
+npm run db-setup
 npm run react-dev
 npm start
 ```
 
 
 ## Development
+
+
 
