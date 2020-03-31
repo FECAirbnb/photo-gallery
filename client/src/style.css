@@ -1,0 +1,34 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.photo-gallery-display img {
+  display: block;
+  width: 100%;
+}
+
+.photo-gallery-display .gallery-display {
+  background-color: #0000001c;
+  position: relative;
+  flex-direction: column;
+  height: 400px;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  /* adjust 'height' to position overlay content vertically */
+  height: 55%;
+  width: 80%
+}
+
+
+
+
+
+
+
+
+
