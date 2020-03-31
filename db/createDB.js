@@ -1,6 +1,7 @@
 const mysql = require('mysql2')
 const data = require('./data.js')
 const dbConnecton = require('./index.js')
+const photo = require('./photos.js')
 
 const axios = require('axios')
 
@@ -47,34 +48,48 @@ dbConnecton.connect(err => {
       throw err
     }
   })
-
-  const api_url = `https://loremflickr.com/api/1/?token=286.dlOQAePbVJpTJDhRmhmwoJEXbnudpLsG&width=320&height=160/tag=home`
-
-  function getImgUrl() {
-    var timeToWaitBetweenRequests = 0;
-    var locationIDforTable = 0
-    var photos = "";
-    for (let i = 0; i < 100; i++) {
-      setTimeout(async function () {
-        try {
-          const response = await axios.get(api_url)
-          if (i % 10 === 0 && locationIDforTable < 11) {
-            locationIDforTable++;
-          }
-          photos = response.request._redirectable._options.href;
-          dbConnecton.promise().query(`INSERT INTO photo (imageUrl, id_locations)  VALUES (?, ?)`, [photos, locationIDforTable], (err) => {
-            if (err) {
-              throw err
-            }
-          })
-        } catch (error) {
-          throw error
-        }
-      }, timeToWaitBetweenRequests += 50)
+  var locationIDforTable = 0
+  photos.forEach((image, i) => {
+    if (i % 10 === 0 && locationIDforTable < 11) {
+      locationIDforTable++;
     }
-  }
-  getImgUrl();
+    dbConnecton.query(`INSERT INTO photo (imageUrl, id_locations)  VALUES (?, ?)`, [image, locationIDforTable], (err) => {
+      if (err) {
+        throw err
+      }
+    })
+  })
+
+  dbConnecton.end();
 })
 
 
 
+
+// const api_url = `https://loremflickr.com/api/1/?token=286.dlOQAePbVJpTJDhRmhmwoJEXbnudpLsG&width=320&height=160/tag=home`
+// function getImgUrl() {
+//   var timeToWaitBetweenRequests = 0;
+//   var locationIDforTable = 0
+//   var photos = "";
+//   var endOfLoop = 20
+//   for (let i = 0; i < endOfLoop; i++) {
+//     setTimeout(async function () {
+//       try {
+//         const response = await axios.get(api_url)
+//         if (i % 10 === 0 && locationIDforTable < 11) {
+//           locationIDforTable++;
+//         }
+//         photos = response.request._redirectable._options.href;
+//         dbConnecton.query(`INSERT INTO photo (imageUrl, id_locations)  VALUES (?, ?)`, [photos, locationIDforTable], (err) => {
+//           if (err) {
+//             throw err
+//           }
+//         })
+//       } catch (error) {
+//         throw error
+//       }
+//     }, timeToWaitBetweenRequests += 50)
+
+//   }
+
+// getImgUrl();

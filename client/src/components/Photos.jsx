@@ -14,7 +14,7 @@ const Photos = props => {
     <div>
       <MDBContainer fluid className='photo-gallery-display' style={{ paddingLeft: 100, paddingRight: 60, height: '400px', overflow: 'hidden' }}>
         <MDBRow className='image-wrapper' style={{ height: '400px', width: '100%', overflow: 'hidden', position: 'relative' }} >
-          <MDBCol md='6' className='main' style={{ paddingLeft: 0, paddingRight: 0, minHeight: ' 400px' }}>
+          <MDBCol md='6' className='main' style={{ paddingLeft: 0, paddingRight: 0, maxHeight: ' 50px' }}>
             <Image src={props.image1} alt='' className='img-fluid z-depth-1' thumbnail />
           </MDBCol>
           <MDBCol md='3' className='smImages' style={{ paddingLeft: 0, paddingRight: 0, minHeight: '200px', maxHeight: '200px' }}>

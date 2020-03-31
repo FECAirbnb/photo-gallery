@@ -1,20 +1,27 @@
+
+/* eslint-disable*/
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
+
+DROP DATABASE IF EXISTS photogallery;
+
 CREATE DATABASE photogallery;
 
 USE photogallery;
 
-`CREATE TABLE locations (
-
-  `id` int NOT NULL AUTO_INCREMENT,
-  `locations_name` varchar(20),
-  PRIMARY KEY (id)
-)`;
-
+CREATE TABLE locations
+(
+  id INT NOT NULL PRIMARY KEY,
+  name VARCHAR(45)
+);
 
 
-`CREATE TABLE photo (
-  `id`        INT NOT NULL AUTO_INCREMENT,
-  `imageUrl` CHAR NULL DEFAULT NULL,
-  `id_Location` INT NULL DEFAULT NULL,
-)`
 
-ALTER TABLE `Photo Gallery ADD FOREIGN KEY (id_Location) REFERENCES Location (id);
+CREATE TABLE photo
+(
+  id INT NOT NULL PRIMARY KEY,
+  imageUrl VARCHAR
+  (255) NULL DEFAULT NULL,
+  id_locations INT NULL
+)
+

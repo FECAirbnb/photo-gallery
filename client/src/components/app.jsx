@@ -29,13 +29,13 @@ class App extends React.Component {
       .then(response => {
         // { console.log(response.data) }
         this.setState({
-          image1: response.data[11].imageUrl,
+          image1: response.data[50].imageUrl,
           image2: response.data[6].imageUrl,
           image3: response.data[7].imageUrl,
-          image4: response.data[18].imageUrl,
-          image5: response.data[9].imageUrl,
-          images: [response.data[11].imageUrl, response.data[6].imageUrl,
-          response.data[7].imageUrl, response.data[13].imageUrl, response.data[9].imageUrl, response.data[18].imageUrl]
+          image4: response.data[28].imageUrl,
+          image5: response.data[30].imageUrl,
+          images: [response.data[50].imageUrl, response.data[6].imageUrl,
+          response.data[7].imageUrl, response.data[28].imageUrl, response.data[30].imageUrl, response.data[5].imageUrl]
         })
       })
       .catch((err) => {
