@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "start": "node ./db/createDB.js && webpack -d && node server/index.js",
+    "start": "node ./db/createDB.js && node server/index.js",
     "db-setup": "node ./db/createDB.js",
     "react-dev": "webpack -d",
     "all": "node ./db/createDB.js && webpack -d && node server/index.js"
