@@ -1,4 +1,4 @@
-const mysql = require('mysql2')
+const mysql = require('mysql')
 const data = require('./data.js')
 const dbConnecton = require('./index.js')
 const photo = require('./photos.js')
